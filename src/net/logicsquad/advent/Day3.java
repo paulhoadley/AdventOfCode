@@ -13,12 +13,17 @@ public class Day3 {
 		// The House universe
 		Map<CoOrdinates, House> grid = new HashMap<CoOrdinates, House>();
 		// Create a new House at the origin
-		House currentHouse = new House(grid, new CoOrdinates(0, 0));
+		House santaHouse = new House(grid, new CoOrdinates(0, 0));
+		House robotHouse = new House(grid, new CoOrdinates(0, 0));
 		byte[] encoded = Files.readAllBytes(Paths.get(INPUT_FILENAME));
 		String string = new String(encoded, "UTF-8");
-		for (int i = 0; i < string.length(); i++) {
-			char c = string.charAt(i);
-			currentHouse = currentHouse.process(c);
+		for (int i = 0; i < string.length();) {
+			char c1 = string.charAt(i);
+			santaHouse = santaHouse.process(c1);
+			i++;
+			char c2 = string.charAt(i);
+			robotHouse = robotHouse.process(c2);
+			i++;
 		}
 		System.out.println("Day3.main: houses.size() = " + grid.size());
 	}
