@@ -18,8 +18,11 @@ public class Day1 {
 			} else {
 				floor--;
 			}
+			if (floor == -1) {
+				System.out.println("Day1.main: position = " + (i + 1));
+				break;
+			}
 		}
-		System.out.println("Day1.main: floor = " + floor);
 		return;
 	}
 }
