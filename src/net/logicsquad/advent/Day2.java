@@ -12,12 +12,17 @@ public class Day2 {
 
 	public static void main(String[] args) throws IOException {
 		List<String> lines = Files.readAllLines(Paths.get(INPUT_FILENAME), StandardCharsets.UTF_8);
-		int total = 0;
+		int totalPaper = 0;
+		int totalRibbon = 0;
+
 		for (String line : lines) {
 			Box b = new Box(line);
-			total += b.paperRequired();
+			totalPaper += b.paperRequired();
+			totalRibbon += b.ribbonRequired();
 		}
-		System.out.println("Day2.main: total = " + total);
+		System.out.println("Day2.main: totalPaper = " + totalPaper);
+		System.out.println("Day2.main: totalRibbon = " + totalRibbon);
+		return;
 	}
 
 	public static class Box {
@@ -60,6 +65,20 @@ public class Day2 {
 		
 		public int paperRequired() {
 			return surfaceArea() + areaOfSmallestSide();
+		}
+
+		private int smallestPerimeter() {
+			int[] sides = new int[] { length, width, height };
+			Arrays.sort(sides);
+			return 2 * sides[0] + 2 * sides[1];
+		}
+
+		private int volume() {
+			return length * width * height;
+		}
+		
+		public int ribbonRequired() {
+			return smallestPerimeter() + volume();
 		}
 	}
 }
