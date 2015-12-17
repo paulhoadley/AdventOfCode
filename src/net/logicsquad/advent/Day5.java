@@ -58,7 +58,29 @@ public class Day5 {
 	}
 
 	private static boolean isNice(String s) {
-		return vowelCount(s) > 2 && containsDoubleLetter(s)
-				&& !containsBadString(s);
+		return hasRepeatedLetterWithSingleGap(s) && hasNonOverlappingRepeatedPair(s);
+	}
+
+	private static boolean hasNonOverlappingRepeatedPair(String s) {
+		for (int i = 0; i < s.length() - 1; i++) {
+			char c1 = s.charAt(i);
+			char c2 = s.charAt(i + 1);
+			String pair = new StringBuilder().append(c1).append(c2).toString();
+			if (s.substring(i + 2).contains(pair)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private static boolean hasRepeatedLetterWithSingleGap(String s) {
+		for (int i = 0; i < s.length() - 2; i++) {
+			char c1 = s.charAt(i);
+			char c2 = s.charAt(i + 2);
+			if (c1 == c2) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
