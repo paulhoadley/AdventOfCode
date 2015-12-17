@@ -17,7 +17,7 @@ public class Day4 {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			byte[] digest = md.digest(bytes);
 			String result = DatatypeConverter.printHexBinary(digest);
-			if (result.startsWith("00000")) {
+			if (result.startsWith("000000")) {
 				break;
 			}
 			counter++;
