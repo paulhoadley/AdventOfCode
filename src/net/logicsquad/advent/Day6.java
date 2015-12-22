@@ -9,7 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.logicsquad.advent.Day6.Event.Action;
-import net.logicsquad.advent.Day6.Light.State;
 
 public class Day6 {
 	private static final String INPUT_FILENAME = "etc/day6.input";
@@ -24,22 +23,21 @@ public class Day6 {
 	}
 
 	public static class Light {
-		public enum State {
-			ON, OFF;
-		}
-
-		public State state = State.OFF;
+		public int brightness = 0;
 
 		public void handle(Action action) {
 			switch (action) {
 			case TURN_ON:
-				state = State.ON;
+				brightness += 1;
 				break;
 			case TURN_OFF:
-				state = State.OFF;
+				brightness -= 1;
+				if (brightness < 0) {
+					brightness = 0;
+				}
 				break;
 			case TOGGLE:
-				state = state == State.ON ? State.OFF : State.ON;
+				brightness += 2;
 				break;
 			default:
 				break;
@@ -63,9 +61,7 @@ public class Day6 {
 			int result = 0;
 			for (int i = 0; i < 1000; i++) {
 				for (int j = 0; j < 1000; j++) {
-					if (grid[i][j].state == State.ON) {
-						result++;
-					}
+					result += grid[i][j].brightness;
 				}
 			}
 			return result;
