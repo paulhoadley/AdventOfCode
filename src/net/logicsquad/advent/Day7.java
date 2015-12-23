@@ -21,6 +21,9 @@ public class Day7 {
 		List<String> lines = Files.readAllLines(Paths.get(INPUT_FILENAME),
 				StandardCharsets.UTF_8);
 		for (String line : lines) {
+			if (line.endsWith("-> b")) {
+				line = "956 -> b";
+			}
 			queue.add(new Connection(line));
 		}
 		while (queue.size() > 0) {
