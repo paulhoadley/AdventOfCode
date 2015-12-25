@@ -3,7 +3,7 @@ package net.logicsquad.advent;
 public class Day10 {
 	public static void main(String[] args) {
 		String input = "1321131112";
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < 50; i++) {
 			input = lookAndSay(input);
 		}
 		System.out.println("Day10.main: input.length() = " + input.length());
