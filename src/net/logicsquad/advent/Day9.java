@@ -39,7 +39,7 @@ public class Day9 {
 				}
 				current = next;
 			}
-			if (distance == 0 || candidate < distance) {
+			if (candidate > distance) {
 				distance = candidate;
 			}
 		}
