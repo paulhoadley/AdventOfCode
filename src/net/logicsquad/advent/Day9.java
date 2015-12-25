@@ -17,17 +17,16 @@ public class Day9 {
 
 	public static void main(String[] args) throws IOException {
 		Map<String, City> cities = new HashMap<String, City>();
-		List<String> lines = Files.readAllLines(Paths.get(INPUT_FILENAME), StandardCharsets.UTF_8);
+		List<String> lines = Files.readAllLines(Paths.get(INPUT_FILENAME),
+				StandardCharsets.UTF_8);
 		for (String line : lines) {
 			City.parseLine(line, cities);
 		}
-		
 		List<String> names = new ArrayList<String>();
 		for (String name : cities.keySet()) {
 			names.add(name);
 		}
-		Permutation p = new Permutation(names);
-
+		Permutation<String> p = new Permutation<String>(names);
 		int distance = 0;
 		for (List<String> perm : p) {
 			City current = null;
@@ -49,7 +48,6 @@ public class Day9 {
 
 	public static class City {
 		public final String name;
-
 		public Map<City, Integer> routes = new HashMap<City, Integer>();
 
 		public City(String name) {
@@ -61,11 +59,11 @@ public class Day9 {
 			routes.put(city, distance);
 			return;
 		}
-		
+
 		public int distanceTo(City city) {
 			return routes.get(city);
 		}
-		
+
 		public static void parseLine(String line, Map<String, City> cities) {
 			Pattern p = Pattern.compile("^(.*) to (.*) = (.*)$");
 			Matcher m = p.matcher(line);
@@ -91,46 +89,30 @@ public class Day9 {
 			fromCity.addRoute(toCity, distance);
 			return;
 		}
-
-		public String toString() {
-			StringBuilder sb = new StringBuilder();
-			sb.append("[");
-			sb.append(name);
-			sb.append(": ");
-			for (City c : routes.keySet()) {
-				sb.append(c.name);
-				sb.append("(");
-				sb.append(routes.get(c));
-				sb.append(") ");
-			}
-			sb.append("]");
-			return sb.toString();
-		}
 	}
 
-	public static class Permutation implements Iterable<List<String>> {
-		private Iterator<List<String>> iterator;
+	public static class Permutation<T> implements Iterable<List<T>> {
+		private Iterator<List<T>> iterator;
+		private final List<T> source;
 
-		private final List<String> source;
-
-		public Permutation(List<String> source) {
+		public Permutation(List<T> source) {
 			this.source = source;
 			return;
 		}
 
 		@Override
-		public Iterator<List<String>> iterator() {
+		public Iterator<List<T>> iterator() {
 			if (iterator == null) {
-				iterator = new StringListIterator();
+				iterator = new ListIterator();
 			}
 			return iterator;
 		}
 
-		private class StringListIterator implements Iterator<List<String>> {
-			private final List<List<String>> list;
+		private class ListIterator implements Iterator<List<T>> {
+			private final List<List<T>> list;
 			private int next = 0;
 
-			public StringListIterator() {
+			public ListIterator() {
 				list = permute(source);
 			}
 
@@ -140,34 +122,34 @@ public class Day9 {
 			}
 
 			@Override
-			public List<String> next() {
-				List<String> result = list.get(next);
+			public List<T> next() {
+				List<T> result = list.get(next);
 				next++;
 				return result;
 			}
-			
-			private List<List<String>> permute(List<String> source) {
-				List<List<String>> result = new ArrayList<List<String>>();
+
+			private List<List<T>> permute(List<T> source) {
+				List<List<T>> result = new ArrayList<List<T>>();
 				if (source.size() == 1) {
 					result.add(source);
 					return result;
 				} else if (source.size() == 2) {
-					List<String> list1 = new ArrayList<String>();
+					List<T> list1 = new ArrayList<T>();
 					list1.add(source.get(0));
 					list1.add(source.get(1));
-					List<String> list2 = new ArrayList<String>();
+					List<T> list2 = new ArrayList<T>();
 					list2.add(source.get(1));
 					list2.add(source.get(0));
 					result.add(list1);
 					result.add(list2);
 					return result;
 				} else {
-					for (String s : source) {
-						List<String> perm = new ArrayList<String>(source);
+					for (T s : source) {
+						List<T> perm = new ArrayList<T>(source);
 						perm.remove(s);
-						
-						for (List<String> l : permute(perm)) {
-							List<String> list = new ArrayList<String>();
+
+						for (List<T> l : permute(perm)) {
+							List<T> list = new ArrayList<T>();
 							list.add(s);
 							list.addAll(l);
 							result.add(list);
