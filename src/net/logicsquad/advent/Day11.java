@@ -13,6 +13,11 @@ public class Day11 {
 		while (!allowed(candidate)) {
 			candidate = increment(candidate);
 		}
+		candidate = increment(candidate);
+		while (!allowed(candidate)) {
+			candidate = increment(candidate);
+		}
+		
 		System.out.println("Day11.main: next = " + candidate);
 	}
 
