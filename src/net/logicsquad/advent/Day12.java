@@ -26,8 +26,10 @@ public class Day12 {
 				result += sumOfNumbers(o);
 			}
 		} else if (node instanceof Map<?, ?>) {
-			for (Object o : ((Map<?, ?>) node).keySet()) {
-				result += sumOfNumbers(((Map<?, ?>) node).get(o));
+			if (!((Map<?, ?>) node).containsValue("red")) {
+				for (Object o : ((Map<?, ?>) node).keySet()) {
+					result += sumOfNumbers(((Map<?, ?>) node).get(o));
+				}
 			}
 		} else {
 			try {
