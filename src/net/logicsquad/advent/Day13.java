@@ -26,15 +26,8 @@ public class Day13 {
 		for (List<String> list : perm) {
 			int happy = 0;
 			for (int i = 0; i < list.size(); i++) {
-				int prev = i - 1;
-				if (prev == -1) {
-					prev = list.size() - 1;
-				}
-				int next = i + 1;
-				if (next == list.size()) {
-					next = 0;
-				}
-				happy += happyMap.get(list.get(i)).get(list.get(prev));
+				int next = (i + 1) % list.size();
+				happy += happyMap.get(list.get(next)).get(list.get(i));
 				happy += happyMap.get(list.get(i)).get(list.get(next));
 			}
 			if (happy > max) {
