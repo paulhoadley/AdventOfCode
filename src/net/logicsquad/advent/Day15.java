@@ -40,9 +40,15 @@ public class Day15 {
 					if (texture < 0) {
 						texture = 0;
 					}
-					int result = capacity * durability * flavor * texture;
-					if (result > max) {
-						max = result;
+					int calories = i * sugar.calories + j * sprinkles.calories + k * candy.calories + l * chocolate.calories;
+					if (calories < 0) {
+						calories = 0;
+					}
+					if (calories == 500) {
+						int result = capacity * durability * flavor * texture;
+						if (result > max) {
+							max = result;
+						}
 					}
 				}
 			}
