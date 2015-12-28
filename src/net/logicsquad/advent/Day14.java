@@ -5,7 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,23 +17,36 @@ public class Day14 {
 
 	public static void main(String[] args) throws IOException {
 		List<Reindeer> stable = new ArrayList<Reindeer>();
+		Map<Reindeer, Integer> board = new HashMap<Reindeer, Integer>();
 		List<String> lines = Files.readAllLines(Paths.get(INPUT_FILENAME),
 				StandardCharsets.UTF_8);
 		for (String line : lines) {
 			stable.add(new Reindeer(line));
 		}
+		for (Reindeer r : stable) {
+			board.put(r, 0);
+		}
 		for (int tick = 0; tick < TICKS; tick++) {
 			for (Reindeer r : stable) {
 				r.tick();
 			}
+			Reindeer max = null;
+			for (Reindeer r : stable) {
+				if (max == null || r.distance > max.distance) {
+					max = r;
+				}
+			}
+			board.put(max, board.get(max) + 1);
 		}
-		Reindeer max = null;
-		for (Reindeer r : stable) {
-			if (max == null || r.distance > max.distance) {
-				max = r;
+		Reindeer winner = null;
+		int points = 0;
+		for (Reindeer r : board.keySet()) {
+			if (winner == null || board.get(r) > points) {
+				winner = r;
+				points = board.get(r);
 			}
 		}
-		System.out.println("Day14.main: distance = " + max.distance);
+		System.out.println("Day14.main: points = " + board.get(winner));
 	}
 
 	public static class Reindeer {
