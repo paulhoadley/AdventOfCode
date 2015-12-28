@@ -21,6 +21,13 @@ public class Day13 {
 		for (String line : lines) {
 			parse(line, happyMap);
 		}
+		Map<String, Integer> paulMap = new HashMap<String, Integer>();
+		for (String person : happyMap.keySet()) {
+			Map<String, Integer> personMap = happyMap.get(person);
+			personMap.put("Paul", 0);
+			paulMap.put(person, 0);
+		}
+		happyMap.put("Paul", paulMap);
 		int max = 0;
 		Permutation<String> perm = new Permutation<String>(happyMap.keySet());
 		for (List<String> list : perm) {
