@@ -24,13 +24,13 @@ public class Day16 {
 			if (!(sue.children == 3 || sue.children == -1)) {
 				sues.remove(sue);
 			}
-			if (!(sue.cats == 7 || sue.cats == -1)) {
+			if (!(sue.cats > 7 || sue.cats == -1)) {
 				sues.remove(sue);
 			}
 			if (!(sue.samoyeds == 2 || sue.samoyeds == -1)) {
 				sues.remove(sue);
 			}
-			if (!(sue.pomeranians == 3 || sue.pomeranians == -1)) {
+			if (!(sue.pomeranians < 3 || sue.pomeranians == -1)) {
 				sues.remove(sue);
 			}
 			if (!(sue.akitas == 0 || sue.akitas == -1)) {
@@ -39,10 +39,10 @@ public class Day16 {
 			if (!(sue.vizslas == 0 || sue.vizslas == -1)) {
 				sues.remove(sue);
 			}
-			if (!(sue.goldfish == 5 || sue.goldfish == -1)) {
+			if (!(sue.goldfish < 5 || sue.goldfish == -1)) {
 				sues.remove(sue);
 			}
-			if (!(sue.trees == 3 || sue.trees == -1)) {
+			if (!(sue.trees > 3 || sue.trees == -1)) {
 				sues.remove(sue);
 			}
 			if (!(sue.cars == 2 || sue.cars == -1)) {
