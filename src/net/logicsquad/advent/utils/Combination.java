@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-public class Combination<T extends Comparable<T>> implements Iterable<List<T>> {
+public class Combination<T> implements Iterable<List<T>> {
 	private Iterator<List<T>> iterator;
 	private final List<T> source;
 	private final int count;
@@ -19,16 +19,16 @@ public class Combination<T extends Comparable<T>> implements Iterable<List<T>> {
 	@Override
 	public Iterator<List<T>> iterator() {
 		if (iterator == null) {
-			iterator = new ListIterator();
+			iterator = new CombinationIterator();
 		}
 		return iterator;
 	}
 
-	public class ListIterator implements Iterator<List<T>> {
+	private class CombinationIterator implements Iterator<List<T>> {
 		private final List<List<T>> list;
 		private int next = 0;
 
-		public ListIterator() {
+		public CombinationIterator() {
 			list = choose(source, count);
 		}
 
