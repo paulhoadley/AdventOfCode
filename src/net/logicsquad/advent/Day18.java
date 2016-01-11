@@ -25,40 +25,22 @@ public class Day18 {
 			for (int i = 0; i < 100; i++) {
 				for (int j = 0; j < 100; j++) {
 					char c = input.get(i).charAt(j);
-					if (c == '#') {
-						lights[i][j] = true;
-					}
+					if (c == '#') lights[i][j] = true;
 				}
 			}
 		}
 
 		private int neighboursAlight(int i, int j) {
-			int count = 0;
-			if (i - 1 > -1 && j - 1 > -1 && lights[i - 1][j - 1]) {
-				count++;
-			}
-			if (j - 1 > -1 && lights[i][j - 1]) {
-				count++;
-			}
-			if (i + 1 < 100 && j - 1 > -1 && lights[i + 1][j - 1]) {
-				count++;
-			}
-			if (i - 1 > -1 && lights[i - 1][j]) {
-				count++;
-			}
-			if (i + 1 < 100 && lights[i + 1][j]) {
-				count++;
-			}
-			if (i - 1 > -1 && j + 1 < 100 && lights[i - 1][j + 1]) {
-				count++;
-			}
-			if (j + 1 < 100 && lights[i][j + 1]) {
-				count++;
-			}
-			if (i + 1 < 100 && j + 1 < 100 && lights[i + 1][j + 1]) {
-				count++;
-			}
-			return count;
+			int c = 0;
+			if (i - 1 > -1 && j - 1 > -1 && lights[i - 1][j - 1]) c++;
+			if (j - 1 > -1 && lights[i][j - 1]) c++;
+			if (i + 1 < 100 && j - 1 > -1 && lights[i + 1][j - 1]) c++;
+			if (i - 1 > -1 && lights[i - 1][j]) c++;
+			if (i + 1 < 100 && lights[i + 1][j]) c++;
+			if (i - 1 > -1 && j + 1 < 100 && lights[i - 1][j + 1]) c++;
+			if (j + 1 < 100 && lights[i][j + 1]) c++;
+			if (i + 1 < 100 && j + 1 < 100 && lights[i + 1][j + 1]) c++;
+			return c;
 		}
 
 		public void tick() {
@@ -66,14 +48,10 @@ public class Day18 {
 			for (int i = 0; i < 100; i++) {
 				for (int j = 0; j < 100; j++) {
 					int alight = neighboursAlight(i, j);
-					if (lights[i][j] == true) {
-						if (alight == 2 || alight == 3) {
-							next[i][j] = true;
-						}
+					if (lights[i][j]) {
+						if (alight == 2 || alight == 3) next[i][j] = true;
 					} else {
-						if (alight == 3) {
-							next[i][j] = true;
-						}
+						if (alight == 3) next[i][j] = true;
 					}
 				}
 			}
@@ -82,15 +60,13 @@ public class Day18 {
 		}
 
 		public int lightsOn() {
-			int count = 0;
+			int c = 0;
 			for (int i = 0; i < 100; i++) {
 				for (int j = 0; j < 100; j++) {
-					if (lights[i][j] == true) {
-						count++;
-					}
+					if (lights[i][j]) c++;
 				}
 			}
-			return count;
+			return c;
 		}
 	}
 }
