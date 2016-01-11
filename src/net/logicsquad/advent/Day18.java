@@ -27,8 +27,6 @@ public class Day18 {
 					char c = input.get(i).charAt(j);
 					if (c == '#') {
 						lights[i][j] = true;
-					} else {
-						lights[i][j] = false;
 					}
 				}
 			}
@@ -36,28 +34,28 @@ public class Day18 {
 
 		private int neighboursAlight(int i, int j) {
 			int count = 0;
-			if (i - 1 > -1 && j - 1 > -1 && lights[i - 1][j - 1] == true) {
+			if (i - 1 > -1 && j - 1 > -1 && lights[i - 1][j - 1]) {
 				count++;
 			}
-			if (j - 1 > -1 && lights[i][j - 1] == true) {
+			if (j - 1 > -1 && lights[i][j - 1]) {
 				count++;
 			}
-			if (i + 1 < 100 && j - 1 > -1 && lights[i + 1][j - 1] == true) {
+			if (i + 1 < 100 && j - 1 > -1 && lights[i + 1][j - 1]) {
 				count++;
 			}
-			if (i - 1 > -1 && lights[i - 1][j] == true) {
+			if (i - 1 > -1 && lights[i - 1][j]) {
 				count++;
 			}
-			if (i + 1 < 100 && lights[i + 1][j] == true) {
+			if (i + 1 < 100 && lights[i + 1][j]) {
 				count++;
 			}
-			if (i - 1 > -1 && j + 1 < 100 && lights[i - 1][j + 1] == true) {
+			if (i - 1 > -1 && j + 1 < 100 && lights[i - 1][j + 1]) {
 				count++;
 			}
-			if (j + 1 < 100 && lights[i][j + 1] == true) {
+			if (j + 1 < 100 && lights[i][j + 1]) {
 				count++;
 			}
-			if (i + 1 < 100 && j + 1 < 100 && lights[i + 1][j + 1] == true) {
+			if (i + 1 < 100 && j + 1 < 100 && lights[i + 1][j + 1]) {
 				count++;
 			}
 			return count;
@@ -71,14 +69,10 @@ public class Day18 {
 					if (lights[i][j] == true) {
 						if (alight == 2 || alight == 3) {
 							next[i][j] = true;
-						} else {
-							next[i][j] = false;
 						}
 					} else {
 						if (alight == 3) {
 							next[i][j] = true;
-						} else {
-							next[i][j] = false;
 						}
 					}
 				}
