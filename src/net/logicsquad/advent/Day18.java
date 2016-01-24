@@ -16,6 +16,10 @@ public class Day18 {
 		private boolean[][] l = new boolean[100][100];
 		public G(List<String> p) {
 			for (int i = 0; i < 100; i++) for (int j = 0; j < 100; j++) if (p.get(i).charAt(j) == '#') l[i][j] = true;
+			l[0][0] = true;
+			l[0][99] = true;
+			l[99][0] = true;
+			l[99][99] = true;
 		}
 		private int n(int i, int j) {
 			int c = 0;
@@ -43,6 +47,10 @@ public class Day18 {
 					}
 				}
 			l = x;
+			l[0][0] = true;
+			l[0][99] = true;
+			l[99][0] = true;
+			l[99][99] = true;
 			return;
 		}
 		public int o() {
