@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day14 {
-	private static final String INPUT_FILENAME = "etc/day14.input";
+	private static final String INPUT_FILENAME = "etc/2015/day14.input";
 	private static final int TICKS = 2503;
 
 	public static void main(String[] args) throws IOException {

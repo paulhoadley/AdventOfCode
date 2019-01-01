@@ -1,4 +1,4 @@
-package net.logicsquad.advent.utils;
+package net.logicsquad.advent.y2015.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,7 +9,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 
 public class Day12 {
-	private static final String INPUT_FILENAME = "etc/day12.input";
+	private static final String INPUT_FILENAME = "etc/2015/day12.input";
 
 	public static void main(String[] args) throws IOException {
 		byte[] encoded = Files.readAllBytes(Paths.get(INPUT_FILENAME));

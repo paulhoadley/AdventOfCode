@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day7 {
-	private static final String INPUT_FILENAME = "etc/day7.input";
+	private static final String INPUT_FILENAME = "etc/2015/day7.input";
 
 	public static void main(String[] args) throws IOException {
 		Map<String, Integer> wires = new HashMap<String, Integer>();

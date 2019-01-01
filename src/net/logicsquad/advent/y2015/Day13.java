@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -10,10 +10,10 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.logicsquad.advent.utils.Permutation;
+import net.logicsquad.advent.y2015.utils.Permutation;
 
 public class Day13 {
-	private static final String INPUT_FILENAME = "etc/day13.input";
+	private static final String INPUT_FILENAME = "etc/2015/day13.input";
 
 	public static void main(String[] args) throws IOException {
 		Map<String, Map<String, Integer>> happyMap = new HashMap<String, Map<String,Integer>>();

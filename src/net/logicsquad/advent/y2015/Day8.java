@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Day8 {
-	private static final String INPUT_FILENAME = "etc/day8.input";
+	private static final String INPUT_FILENAME = "etc/2015/day8.input";
 	
 	public static void main(String[] args) throws IOException {
 		List<String> lines = Files.readAllLines(Paths.get(INPUT_FILENAME), StandardCharsets.UTF_8);

@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day15 {
-	private static final String INPUT_FILENAME = "etc/day15.input";
+	private static final String INPUT_FILENAME = "etc/2015/day15.input";
 
 	public static void main(String[] args) throws IOException {
 		List<String> lines = Files.readAllLines(Paths.get(INPUT_FILENAME),

@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Day3 {
-	private static final String INPUT_FILENAME = "etc/day3.input";
+	private static final String INPUT_FILENAME = "etc/2015/day3.input";
 
 	public static void main(String[] args) throws IOException {
 		// The House universe

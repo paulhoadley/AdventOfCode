@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Day5 {
-	private static final String INPUT_FILENAME = "etc/day5.input";
+	private static final String INPUT_FILENAME = "etc/2015/day5.input";
 	private static final String[] BAD_STRINGS = { "ab", "cd", "pq", "xy" };
 
 	public static void main(String[] args) throws IOException {

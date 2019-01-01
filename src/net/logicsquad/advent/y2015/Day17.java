@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.logicsquad.advent.utils.Combination;
+import net.logicsquad.advent.y2015.utils.Combination;
 
 public class Day17 {
-	private static final String INPUT_FILENAME = "etc/day17.input";
+	private static final String INPUT_FILENAME = "etc/2015/day17.input";
 	private static final int TOTAL = 150;
 
 	public static void main(String[] args) throws IOException {

@@ -1,11 +1,11 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Day1 {
-	private static final String INPUT_FILENAME = "etc/day1.input";
+	private static final String INPUT_FILENAME = "etc/2015/day1.input";
 	
 	public static void main(String[] args) throws IOException {
 		byte[] encoded = Files.readAllBytes(Paths.get(INPUT_FILENAME));

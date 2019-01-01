@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 public class Day20 {
 	private static final int MIN_SIZE = 34000000;

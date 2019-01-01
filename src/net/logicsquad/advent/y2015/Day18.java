@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Day18 {
 	public static void main(String[] args) throws IOException {
-		G g = new G(Files.readAllLines(Paths.get("etc/day18.input"), StandardCharsets.UTF_8));
+		G g = new G(Files.readAllLines(Paths.get("etc/2015/day18.input"), StandardCharsets.UTF_8));
 		for (int i = 0; i < 100; i++) g.t();
 		System.out.println("Day18.main: grid.lightsOn() = " + g.o());
 	}

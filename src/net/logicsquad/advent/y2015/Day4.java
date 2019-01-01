@@ -1,4 +1,4 @@
-package net.logicsquad.advent;
+package net.logicsquad.advent.y2015;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
