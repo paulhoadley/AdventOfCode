@@ -1,48 +1,48 @@
 package net.logicsquad.advent.y2018;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Day2 extends Day {
 	private static final String INPUT_FILENAME = "etc/2018/day2.input";
 
 	public static void main(String[] args) {
 		List<String> lines = linesForFilename(INPUT_FILENAME);
-		int twos = 0;
-		int threes = 0;
-		for (String line : lines) {
-			if (hasAtLeastOneExactlyN(line, 2)) {
-				twos++;
-			}
-			if (hasAtLeastOneExactlyN(line, 3)) {
-				threes++;
+		for (int i = 0; i < lines.size(); i++) {
+			for (int j = i+1; j < lines.size(); j++) {
+				String alpha = lines.get(i);
+				String beta = lines.get(j);
+				if (hammingDistance(alpha, beta) == 1) {
+					System.out.println("Day2.main: result = " + common(alpha, beta));
+					return;
+				}
 			}
 		}
-		System.out.println("Day2.main: twos * threes = " + (twos * threes));
 		return;
 	}
 
-	private static Map<Character, Integer> counts(String input) {
-		Map<Character, Integer> result = new HashMap<>();
-		for (int i = 0; i < input.length(); i++) {
-			char c = input.charAt(i);
-			if (result.containsKey(c)) {
-				result.put(c, result.get(c) + 1);
-			} else {
-				result.put(c, 1);
+	private static int hammingDistance(String alpha, String beta) {
+		if (alpha.length() != beta.length()) {
+			throw new IllegalArgumentException();
+		}
+		int distance = 0;
+		for (int i = 0; i < alpha.length(); i++) {
+			if (alpha.charAt(i) != beta.charAt(i)) {
+				distance++;
 			}
 		}
-		return result;
+		return distance;
 	}
 
-	private static boolean hasAtLeastOneExactlyN(String input, int n) {
-		Map<Character, Integer> result = counts(input);
-		for (Integer i : result.values()) {
-			if (i == n) {
-				return true;
+	private static String common(String alpha, String beta) {
+		if (alpha.length() != beta.length()) {
+			throw new IllegalArgumentException();
+		}
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < alpha.length(); i++) {
+			if (alpha.charAt(i) == beta.charAt(i)) {
+				sb.append(alpha.charAt(i));
 			}
 		}
-		return false;
+		return sb.toString();
 	}
 }
